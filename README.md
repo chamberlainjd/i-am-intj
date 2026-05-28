@@ -1,32 +1,49 @@
 <p align="center">
-  <img src="https://em-content.zobj.net/source/apple/391/brain_1f9e0.png" width="120" />
+  <img src="./logo.png" alt="i-have-adhd" width="140" />
+</p>
+<p align="center">
+  <strong align="center">ADHD-friendly outputs. No ADHD diagnosis needed!</strong>
+</p>
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="License"></a>
 </p>
 
-<h1 align="center">i-have-adhd</h1>
 
 ## Install
 
 ```bash
-git clone https://github.com/ayghri/i-have-adhd ~/i-have-adhd
-claude plugin marketplace add ~/i-have-adhd
+git clone https://github.com/ayghri/i-have-adhd ./i-have-adhd
+claude plugin marketplace add ./i-have-adhd
 claude plugin install i-have-adhd@i-have-adhd
 ```
 
-In Claude Code: `/i-have-adhd`. Stop with `stop adhd mode`. More in [INSTALL.md](./INSTALL.md).
+In Claude Code: `/i-have-adhd`.
+
+To disable: `claude plugin disable i-have-adhd` or use `/plugin disable i-have-adhd` from within CC.
+
+More in [INSTALL.md](./INSTALL.md).
 
 ## What it does
 
 A Claude Code skill that stops burying the answer. Action first. Steps numbered. No "Hope this helps!"
 
-No ADHD diagnosis needed!
 
 ## What changes
 
-**Before**
 
-> Great question! Let's think about this. Your auth flow has a few moving pieces. We could approach this in a few different ways. Let me know if you want to dig deeper!
+<table>
+<tr>
+<td width="50%">
 
-**After**
+## Before
+
+> Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the token verification, and the cookie handling. Looking at `src/auth.ts`, the `verifyToken` function (around lines 42-58) seems to be using an older `jsonwebtoken` API. One approach would be to update the package and rewrite that function. After making the change, you'd want to run the auth tests to confirm nothing breaks. By the way, you might also want to look at your dependency versions overall. Hope this helps! Let me know if you want to dig deeper.
+
+</td>
+
+<td width="50%">
+
+## After
 
 > Run `npm install jsonwebtoken@latest`, then edit `src/auth.ts:42`.
 >
@@ -35,6 +52,11 @@ No ADHD diagnosis needed!
 > 3. Run `npm test -- auth.spec.ts`
 >
 > Next: paste the first failing line if any test fails.
+
+</td>
+</tr>
+</table>
+
 
 ## The rules
 

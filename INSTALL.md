@@ -5,12 +5,14 @@ A Claude Code plugin. One skill inside.
 ## TL;DR
 
 ```bash
-git clone https://github.com/ayghri/i-have-adhd ~/i-have-adhd
-claude plugin marketplace add ~/i-have-adhd
+git clone https://github.com/ayghri/i-have-adhd ./i-have-adhd
+claude plugin marketplace add ./i-have-adhd
 claude plugin install i-have-adhd@i-have-adhd
 ```
 
-Open Claude Code, type `/i-have-adhd`. Stop with `stop adhd mode` or `normal mode`.
+Open Claude Code, type `/i-have-adhd`.
+
+To disable: `claude plugin disable i-have-adhd` (or `/plugin disable i-have-adhd` from within Claude Code). Re-enable later with `enable` instead of `disable`.
 
 ## Verify
 
@@ -23,7 +25,7 @@ Look for `i-have-adhd  (enabled)`.
 ## Update
 
 ```bash
-cd ~/i-have-adhd && git pull
+cd ./i-have-adhd && git pull
 ```
 
 The marketplace re-reads the local checkout. Next Claude Code session picks up changes.
