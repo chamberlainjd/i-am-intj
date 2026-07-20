@@ -26,6 +26,16 @@ codex plugin add i-have-adhd@i-have-adhd
 
 In Codex, type `$i-have-adhd` to request the output style explicitly.
 
+### Antigravity (`agy`)
+
+```bash
+agy plugin install https://github.com/ayghri/i-have-adhd
+```
+
+In Antigravity, type `/skills` to verify that `i-have-adhd` is loaded.
+
+To disable: `agy plugin disable i-have-adhd`.
+
 ### Cursor
 
 Project (this workspace):
@@ -85,6 +95,14 @@ codex plugin list
 
 Look for `i-have-adhd` in the configured `i-have-adhd` marketplace.
 
+### Antigravity (`agy`)
+
+```bash
+agy plugin list
+```
+
+Look for `i-have-adhd` in the list of installed plugins.
+
 ### Cursor
 
 ```bash
@@ -115,6 +133,13 @@ codex plugin remove i-have-adhd
 codex plugin add i-have-adhd@i-have-adhd
 ```
 
+### Antigravity (`agy`)
+
+```bash
+agy plugin uninstall i-have-adhd
+agy plugin install https://github.com/ayghri/i-have-adhd
+```
+
 ### Cursor
 
 ```bash
@@ -139,6 +164,12 @@ claude plugin marketplace remove i-have-adhd
 ```bash
 codex plugin remove i-have-adhd
 codex plugin marketplace remove i-have-adhd
+```
+
+### Antigravity (`agy`)
+
+```bash
+agy plugin uninstall i-have-adhd
 ```
 
 ### Cursor
@@ -172,6 +203,10 @@ To skip `/i-have-adhd` and apply the rules from message one, add to `~/.claude/C
 
 Always follow the rules in the `i-have-adhd` skill: action-first, numbered steps, no preamble, no closers, state restated each turn.
 ```
+
+### Antigravity (`agy`)
+
+Add the same block to `~/.gemini/GEMINI.md`.
 
 ### Cursor
 
