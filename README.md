@@ -11,50 +11,31 @@
 
 ## Install
 
-### Claude Code
+<details>
+<summary><strong>Claude Code</strong></summary>
 
 ```bash
-git clone https://github.com/ayghri/i-have-adhd ./i-have-adhd
-claude plugin marketplace add ./i-have-adhd
+claude plugin marketplace add ayghri/i-have-adhd
 claude plugin install i-have-adhd@i-have-adhd
 ```
 
-In Claude Code: `/i-have-adhd`.
+Then type `/i-have-adhd`. No local clone needed — Claude Code fetches the repo and keeps it updated.
 
-To disable: `claude plugin disable i-have-adhd` or use `/plugin disable i-have-adhd` from within CC.
+</details>
 
-### Codex
+<details>
+<summary><strong>Codex</strong></summary>
 
 ```bash
 codex plugin marketplace add ayghri/i-have-adhd --ref main
 codex plugin add i-have-adhd@i-have-adhd
 ```
 
-In Codex: use `$i-have-adhd` when you want the output style applied explicitly. The skill can also be invoked implicitly when Codex sees a task that benefits from action-first, ADHD-friendly output.
-
-### Cursor
-
-```bash
-npx skills add ayghri/i-have-adhd
-```
-
-Global: `npx skills add ayghri/i-have-adhd -g`. Cursor-only: `npx skills add ayghri/i-have-adhd -a cursor -y`.
-
-In Cursor Agent: `/i-have-adhd`. Start a new Agent chat after install.
-
-To uninstall: `npx skills remove i-have-adhd` (or `-g` if installed globally).
-
-<details>
-<summary>Manual fallback (clone + copy)</summary>
-
-```bash
-mkdir -p ~/.cursor/skills
-cp -R /path/to/i-have-adhd/skills/i-have-adhd ~/.cursor/skills/
-```
+Then type `$i-have-adhd` to apply the output style explicitly. The skill can also be invoked implicitly when Codex sees a task that benefits from it.
 
 </details>
 
-More in [INSTALL.md](./INSTALL.md).
+Install instructions for other coding agents live in [INSTALL.md](./INSTALL.md).
 
 ## What it does
 
@@ -108,7 +89,7 @@ A skill for Claude Code, Codex, and Cursor that stops burying the answer. Action
 
 ## Tune it
 
-Edit `skills/i-have-adhd/SKILL.md`. Re-invoke `/i-have-adhd`.
+Fork, edit `skills/i-have-adhd/SKILL.md`, install your fork: `claude plugin marketplace add <your-username>/i-have-adhd`. Re-invoke `/i-have-adhd`.
 
 ## Credits
 
