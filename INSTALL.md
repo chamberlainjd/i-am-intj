@@ -151,6 +151,16 @@ npx skills remove i-have-adhd -g
 
 Manual fallback: `rm -rf ~/.cursor/skills/i-have-adhd` or `.cursor/skills/i-have-adhd`.
 
+## How activation works
+
+Three states, in order of how much you opt in:
+
+1. **Installed, not invoked.** Nothing happens. `SKILL.md` sets `disable-model-invocation: true`, so the model never sees the skill's description and never applies the rules on its own.
+2. **You type `/i-have-adhd`.** Rules on for that session. Say "stop adhd mode" or "normal mode" to turn them off.
+3. **You add the always-on config below.** Rules on from message one, every session, no command needed.
+
+There is no automatic middle ground. If you did not turn it on, it is off.
+
 ## Always-on (optional)
 
 ### Claude Code
@@ -167,19 +177,17 @@ Always follow the rules in the `i-have-adhd` skill: action-first, numbered steps
 
 Add the same text to **Cursor Settings → Rules → User Rules** (applies across projects), or put it in a project rule under `.cursor/rules/` with `alwaysApply: true`.
 
-## On-demand only (optional)
+## On-demand only (default)
 
-The skill's frontmatter `description` tells the model to apply the rules to *every* message, including ones
-where brevity was never requested. If you'd rather it engage only when you ask, replace the `description`
-line in `skills/i-have-adhd/SKILL.md` with:
+This is the shipped behaviour. No configuration needed. `skills/i-have-adhd/SKILL.md` carries:
 
 ```yaml
-description: Action-first, ADHD-friendly output shaping (lead with the next action, numbered steps, no preamble, restate state, suppress tangents, make wins visible). OPT-IN ONLY: use this skill ONLY when the user explicitly asks for it in that message - e.g. "adhd mode", "/i-have-adhd", "short version", "just the steps", "skip the preamble", "tl;dr" - or while the user has explicitly turned the mode on and has not said "stop adhd mode"/"normal mode". Do NOT apply by default. If it was not explicitly requested, respond normally and do not shape or shorten the answer.
+disable-model-invocation: true
 ```
 
-Then `/i-have-adhd` (or "adhd mode") turns it on for the session, and "stop adhd mode" / "normal mode" turns
-it off. Restart Claude Code after editing. The ten rules themselves are unchanged — this only changes *when*
-they engage.
+Claude never auto-applies the rules. `/i-have-adhd` (or "adhd mode") turns them on for the session; "stop adhd
+mode" / "normal mode" turns them off. Restart Claude Code after editing the skill. The ten rules themselves are
+unchanged. This only governs *when* they engage.
 
 ## Troubleshooting
 
