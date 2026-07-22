@@ -1,6 +1,6 @@
 # Install i-have-adhd
 
-One skill. Claude Code, Codex, Antigravity, and any harness that reads agent skills.
+One skill. Claude Code, Codex, Zed, Antigravity, and any harness that reads agent skills.
 
 <details>
 <summary><strong>Claude Code</strong></summary>
@@ -107,6 +107,52 @@ The reader has ADHD. Shape every response so it can be acted on:
 10. No preamble, no recaps, no closers.
 
 Exceptions: explain fully when asked to explain. Confirm before destructive actions. After three failed fixes, stop and name the doubtful assumption. If the request is ambiguous, ask one short question.
+```
+
+</details>
+
+<details>
+<summary><strong>Zed</strong></summary>
+
+Zed's Agent reads Agent Skills natively — the same `SKILL.md`, no conversion. (Zed's older "Rules" were replaced by Skills + `AGENTS.md` instructions.)
+
+### Install
+
+In the Agent Panel, open the Skills manager and choose **Create skill from URL** (also available from the command palette as `agent: create skill from url`), then paste:
+
+```
+https://github.com/ayghri/i-have-adhd/blob/main/skills/i-have-adhd/SKILL.md
+```
+
+Save it in **User** scope for every project, or **Project** scope for one. Then type `/i-have-adhd` in the Agent Panel.
+
+Prefer the filesystem? Clone the repo and drop the skill folder into your user skills directory:
+
+```bash
+git clone https://github.com/ayghri/i-have-adhd
+cp -R i-have-adhd/skills/i-have-adhd ~/.config/zed/skills/
+```
+
+### Verify
+
+Open the Skills manager in the Agent Panel — `i-have-adhd` is listed. Or type `/` and confirm it appears.
+
+### Update
+
+Re-import from the same URL (overwrites), or re-copy the folder after `git pull`.
+
+### Uninstall
+
+Remove `i-have-adhd` from the Skills manager, or delete `~/.config/zed/skills/i-have-adhd`.
+
+### Always-on (optional)
+
+Add to your personal `~/.config/zed/AGENTS.md`:
+
+```markdown
+## Output style
+
+Always follow the rules in the `i-have-adhd` skill: action-first, numbered steps, no preamble, no closers, state restated each turn.
 ```
 
 </details>
