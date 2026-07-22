@@ -192,17 +192,6 @@ def _parse_response(output: str, response_format: str) -> tuple[str, dict[str, A
             payload.get("usage", {}) or {},
             payload.get("total_cost_usd"),
         )
-    if response_format == "codex-jsonl":
-        events = [json.loads(line) for line in output.splitlines() if line.strip()]
-        text = ""
-        usage: dict[str, Any] = {}
-        for event in events:
-            item = event.get("item", {})
-            if event.get("type") == "item.completed" and item.get("type") == "agent_message":
-                text = item.get("text", text)
-            if event.get("type") == "turn.completed":
-                usage = event.get("usage", usage)
-        return str(text).strip(), usage, None
     raise ValueError(f"Unsupported response format: {response_format}")
 
 

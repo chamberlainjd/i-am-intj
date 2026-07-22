@@ -1,9 +1,9 @@
 {
-  "name": "i-have-adhd",
+  "name": "i-am-intj",
   "version": "0.1.0",
-  "description": "Shape Claude Code output for an ADHD reader: lead with the next action, number steps, suppress tangents, restate state, make wins visible.",
+  "description": "Shape Claude Code output like an INTJ: verdict first, one firm recommendation, tight reasoning, zero filler.",
   "author": {
-    "name": "Ayoub G.",
-    "url": "https://github.com/ayghri"
+    "name": "Joe Chamberlain",
+    "url": "https://github.com/chamberlainjd"
   }
 }

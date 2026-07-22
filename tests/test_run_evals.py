@@ -71,7 +71,7 @@ class EvaluationHarnessTest(unittest.TestCase):
     def test_conditions_judged_on_different_cases_are_rejected(self):
         rows = [
             self._score_row("destructive-action", "baseline", 2),
-            self._score_row("medical-boundary", "baseline", 2),
+            self._score_row("mbti-boundary", "baseline", 2),
             self._score_row("direct-answer", "candidate", 5),
         ]
 

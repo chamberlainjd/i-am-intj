@@ -8,7 +8,7 @@
             "type": "command",
             "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/always-on.js\"",
             "timeout": 5,
-            "statusMessage": "Checking i-have-adhd always-on flag..."
+            "statusMessage": "Checking i-am-intj always-on flag..."
           }
         ]
       }

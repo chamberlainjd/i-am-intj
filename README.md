@@ -1,51 +1,41 @@
 <p align="center">
-  <img src="./logo.png" alt="i-have-adhd" width="140" />
+  <img src="./logo.svg" alt="i-am-intj" width="140" />
 </p>
 <p align="center">
-  <strong align="center">ADHD-friendly outputs. No ADHD diagnosis needed!</strong>
+  <strong align="center">The verdict comes first. The pleasantries don't come at all.</strong>
 </p>
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/ayghri/i-have-adhd?style=flat" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/chamberlainjd/i-am-intj?style=flat" alt="License"></a>
 </p>
 
 
 ## Install
 
-<details>
-<summary><strong>Claude Code</strong></summary>
+Claude Code only, by design.
 
 ```bash
-claude plugin marketplace add ayghri/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin marketplace add chamberlainjd/i-am-intj
+claude plugin install i-am-intj@i-am-intj
 ```
 
-Then type `/i-have-adhd`. No local clone needed: Claude Code fetches the repo and keeps it updated.
+Then type `/i-am-intj`. No local clone needed: Claude Code fetches the repo and keeps it updated.
 
-Want it on every session? `touch ~/.claude/.i-have-adhd-always` (see [INSTALL.md](./INSTALL.md)).
+Want it on every session? `touch ~/.claude/.i-am-intj-always` (see [INSTALL.md](./INSTALL.md)).
 
-</details>
-
-<details>
-<summary><strong>Codex</strong></summary>
+No `claude` CLI on the machine? Copy the skill folder instead:
 
 ```bash
-codex plugin marketplace add ayghri/i-have-adhd --ref main
-codex plugin add i-have-adhd@i-have-adhd
+git clone https://github.com/chamberlainjd/i-am-intj
+cp -R i-am-intj/skills/i-am-intj ~/.claude/skills/
 ```
 
-Then type `$i-have-adhd` to apply the output style explicitly. The skill can also be invoked implicitly when Codex sees a task that benefits from it.
-
-</details>
-
-Install instructions for other coding agents live in [INSTALL.md](./INSTALL.md).
+The Codex, Cursor, Gemini, Zed, and Antigravity adapters that shipped with the upstream project were removed on purpose. One harness, maintained properly, beats seven maintained badly.
 
 ## What it does
 
-A skill for your coding assistant that stops it from burying the answer. Action first. Steps numbered. No "Hope this helps!"
-
+A skill that makes Claude answer like an INTJ: verdict in the first line, one firm recommendation instead of an options buffet, reasoning compressed to what actually carries the conclusion, wrong premises challenged before any work starts, and no "Great question!" anywhere in the transcript.
 
 ## What changes
-
 
 <table>
 <tr>
@@ -53,7 +43,7 @@ A skill for your coding assistant that stops it from burying the answer. Action 
 
 ## Before
 
-> Great question! Let me think about this. Your auth flow has a few moving pieces: the middleware, the token verification, and the cookie handling. Looking at `src/auth.ts`, the `verifyToken` function (around lines 42-58) seems to be using an older `jsonwebtoken` API. One approach would be to update the package and rewrite that function. After making the change, you'd want to run the auth tests to confirm nothing breaks. By the way, you might also want to look at your dependency versions overall. Hope this helps! Let me know if you want to dig deeper.
+> Great question! There are several excellent options for your database, and the right choice really depends on your specific needs. PostgreSQL is a fantastic, battle-tested relational database with a rich ecosystem. MongoDB, on the other hand, offers flexible schemas and can be a great fit for evolving data models. Both are solid choices! Would you like me to go deeper on either one? Happy to help you weigh the trade-offs!
 
 </td>
 
@@ -61,13 +51,11 @@ A skill for your coding assistant that stops it from burying the answer. Action 
 
 ## After
 
-> Run `npm install jsonwebtoken@latest`, then edit `src/auth.ts:42`.
+> Postgres. Your data is relational (tenants, invoices, line items) and you need the transactions; Mongo trades those away for schema flexibility you don't need.
 >
-> 1. Open `src/auth.ts`
-> 2. Replace `verifyToken` (lines 42–58) with the snippet below
-> 3. Run `npm test -- auth.spec.ts`
+> Mongo wins only if you expect document-shaped, per-customer schemas. You don't.
 >
-> Next: paste the first failing line if any test fails.
+> Next: `createdb invoicing && npx prisma init`.
 
 </td>
 </tr>
@@ -76,38 +64,38 @@ A skill for your coding assistant that stops it from burying the answer. Action 
 
 ## The rules
 
-10 rules. Full text in [SKILL.md](./skills/i-have-adhd/SKILL.md).
+10 rules. Full text in [SKILL.md](./skills/i-am-intj/SKILL.md).
 
-1. Lead with the next action.
-2. Number multi-step tasks.
-3. End with one concrete next step.
-4. Suppress tangents.
-5. Restate state every turn.
-6. Specific time estimates (minutes, not "a bit").
-7. Make wins visible.
-8. Matter-of-fact errors.
-9. Cap lists at 5 items.
-10. No preamble. No recap. No closers.
+1. Verdict first.
+2. One recommendation, not a menu.
+3. Cut the social layer.
+4. Challenge wrong premises before executing.
+5. Show only the load-bearing logic.
+6. Precision or silence.
+7. Name the second-order effects.
+8. Assume intelligence.
+9. Do not ask what you can infer.
+10. Controlled tone, rationed humor.
 
 ## Tune it
 
-Fork, edit `skills/i-have-adhd/SKILL.md`, then swap your copy in:
+Fork, edit `skills/i-am-intj/SKILL.md`, then swap your copy in:
 
 ```bash
-claude plugin uninstall i-have-adhd            # drop the upstream copy first:
-claude plugin marketplace remove i-have-adhd   # fork and upstream share both names
-claude plugin marketplace add <your-username>/i-have-adhd
-claude plugin install i-have-adhd@i-have-adhd
+claude plugin uninstall i-am-intj            # drop this copy first:
+claude plugin marketplace remove i-am-intj   # fork and origin share both names
+claude plugin marketplace add <your-username>/i-am-intj
+claude plugin install i-am-intj@i-am-intj
 ```
 
-Restart Claude Code, then re-invoke `/i-have-adhd`.
+Restart Claude Code, then re-invoke `/i-am-intj`.
 
 ## Credits
 
-Loosely based on *The Adult ADHD Tool Kit* by J. Russell Ramsay and Anthony L. Rostain. Adapted for how an LLM should respond, not how a human should organize their day.
+Forked from [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd): same machinery, different reader. The ruleset draws on 16personalities' Architect profile and Personality Junkie's INTJ communication write-ups. MBTI is a preference framework, not settled science; this repo takes no position on that, only on whether the output style is useful.
 
 ## License
 
 MIT.
 
-Star ⭐ if it saved you one scroll past one "Great question!"
+Star it if the reasoning holds. If it doesn't, open an issue and say exactly why.
