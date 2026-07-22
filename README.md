@@ -19,7 +19,7 @@ claude plugin marketplace add ayghri/i-have-adhd
 claude plugin install i-have-adhd@i-have-adhd
 ```
 
-Then type `/i-have-adhd`. No local clone needed — Claude Code fetches the repo and keeps it updated.
+Then type `/i-have-adhd`. No local clone needed: Claude Code fetches the repo and keeps it updated.
 
 </details>
 
