@@ -4,6 +4,7 @@ name: plugin loads in Claude Code
 # fails if it does not reach "enabled". Catches load-layer breakage that
 # schema validation misses, e.g. the duplicate hooks declaration in #61.
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - .claude-plugin/**
